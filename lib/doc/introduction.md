@@ -26,8 +26,13 @@ usage: mudbook [[-h | --help | start | export] [options]]
 Calling mudbook without any option will start the server and show MUDBook documentation.
 
 -h | --help - Show this help message
+init - Copy files to your doc directory to enable customization
 start - Start mudbook server and serve site content
 export - Generate static HTML content for your site
+
+init options:
+  -d --docRoot <doc-root-dir>    Path to documentation root directory
+  -w --overwrite                 Replace existing files in output directory
 
 start options:
   -p --port   <port-number>      Port to use [3000]
