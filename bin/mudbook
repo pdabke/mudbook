@@ -1,0 +1,91 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var minimist   = require('minimist'),
+    mudbook    = require('../lib/mudbook');
+
+var optionInfo = [
+  ['p', 'port', 3000],
+  ['s', 'httpsPort', false],
+  ['c', 'cert', null],
+  ['k', 'key', null],
+  ['d', 'docRoot', null],
+  ['o', 'outputDir', null],
+  ['w', 'overwrite', false]
+];
+
+var argv = minimist(process.argv.slice(2));
+
+if (argv.help || argv.h) {
+  console.log([
+    'usage: mudbook [[-h | --help | init | start | export] [options]]',
+    '',
+    'Calling mudbook without any option will start the server and show MUDBook documentation.',
+    '',
+    '-h | --help - Show this help message',
+    'init - Copy files to your doc directory to enable customization',
+    'start - Start mudbook server and serve site content',
+    'export - Generate static HTML content for your site',
+    '',
+    'init options:',
+    '  -d --docRoot <doc-root-dir>    Path to documentation root directory',
+    '  -w --overwrite                 Replace existing files in output directory',
+    '',
+    'start options:',
+    '  -p --port   <port-number>      Port to use [3000]',
+    '  -s --httpsPort                 HTTPS port',
+    '  -c --cert <cert-file-path>     Path to ssl cert file (default: cert.pem)',
+    '  -k --key <key-file-path>       Path to ssl key file (default: key.pem)',
+    '',
+    '  -d --docRoot <doc-root-dir>    Path to documentation root directory',
+    '',
+    'export options:',
+    '  -d --docRoot <doc-root-dir>    Path to documentation root directory',
+    '  -o --outputDir <output-dir>    Output directory for generated Web site files',
+    '  -w --overwrite                 Replace existing files in output directory'
+  ].join('\n'));
+  process.exit();
+}
+
+if (process.platform === 'win32') {
+  require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+  }).on('SIGINT', function () {
+    process.emit('SIGINT');
+  });
+}
+
+process.on('SIGINT', function () {
+  console.info('MUDBook server stopped.');
+  process.exit();
+});
+
+process.on('SIGTERM', function () {
+  console.info('MUDBook server stopped.');
+  process.exit();
+});
+
+function setOption(s, l, d) {
+  if (argv[s]) options[l] = argv[s];
+  else if (argv[l]) options[l] = argv[l];
+  else options[l] = d;
+}
+
+
+var options = {};
+for (var i=0; i<optionInfo.length; i++) {
+  setOption(...optionInfo[i]);
+}
+
+var mode = argv['_'];
+if (!mode || mode.length === 0) mode = 'start';
+else mode = mode[0];
+if (mode === 'start') mudbook.serve(options);
+else if (mode === 'export') mudbook.export(options);
+else if (mode === 'init') mudbook.init(options);
+else {
+  console.error('Invalid MUDBook mode: ' + mode);
+  process.exit();
+}

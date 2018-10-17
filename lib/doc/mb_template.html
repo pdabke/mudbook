@@ -1,0 +1,92 @@
+<!doctype html>
+<!--
+ Distributed under MIT License
+
+Copyright 2018 Nabh Inc. All Rights Reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+and associated documentation files (the "Software"), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge, publish, distribute, 
+sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is 
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or 
+substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT 
+NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT
+OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+<html lang="en">
+
+<head>
+    <title>MUDBook Documentation</title>
+    <meta charset="utf-8">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="MUDBook Documentation">
+    <meta name="keywords" content="MUDBook, markdown, gitbook, node.js">
+    <meta name="author" content="Nabh Inc.">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{rootFolder}}mb_bootstrap.css" rel="stylesheet">
+    <link href="{{rootFolder}}mb.css" rel="stylesheet">
+
+    <link rel="icon" href="{{rootFolder}}favicon.ico">
+
+    <!-- highlight.js CSS -->
+    <link href="https://highlightjs.org/static/demo/styles/solarized-light.css" rel="stylesheet">
+    <!-- Google Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.3/lunr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
+    <script src="{{rootFolder}}mb_search_index.js"></script>
+    <script src="{{rootFolder}}mb.js"></script>
+</head>
+
+<body>
+    <header class="mb-navbar">
+        <a href="#/" class="navbar-brand"><img src="{{rootFolder}}mb_logo_light.png" alt="Site Header"></a>
+        <i class="d-md-none material-icons mb-menu-button" onclick="mb_toggle_sidebar(event)">menu</i>
+    </header>
+    <div class="mb-search">
+        <div class="mb-search-form">
+            <form autocomplete="off" class="form-inline">
+                <input id="search-input" class="form-control mr-md-2" placeholder="Search" type="text">
+            </form>
+        </div>
+    </div>
+
+    <main class="container-fluid">
+        <div class="row flex-xl-nowrap">
+            <div id="mb-sidebar-id" class="col-md-3 col-xl-3 d-md-flex mb-sidebar">
+                <div>
+                    {{sidebarContent}}
+                </div>
+                <div class="mb-footer">
+                    Powered by MUDBook
+                </div>
+            </div>
+            <div class="col-12 col-md-9 col-xl-7 mb-content">
+                {{mainContent}}
+            </div>
+            <div class="d-none d-xl-block col-xl-2 mb-toc">
+                <div class="mb-toc-content">
+                    {{tocContent}}
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        var MBRootDir = '{{rootFolder}}';
+        window.onload = function () {
+            mb_init_search();
+        }
+    </script>
+</body>
+
+</html>

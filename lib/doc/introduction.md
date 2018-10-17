@@ -6,6 +6,8 @@
 * Responsive, looks great on desktops as well as mobile
 * Fully customizable using your own document template
 
+![MUDBook Screenshot](./mb_screenshot.png)
+
 ## Install
 Install mudbook globally using npm -g option.
 ``` bash
