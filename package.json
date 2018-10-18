@@ -1,7 +1,7 @@
 {
   "name": "mudbook",
-  "version": "1.0.0",
-  "description": "Turn a folder of Markdown and HTML pages into a documentation Web site",
+  "version": "1.0.1",
+  "description": "Generate documentation Web sites from HTML and Markdown pages.",
   "main": "./lib/mudbook",
   "scripts": {
     "start": "node ./bin/mudbook"
