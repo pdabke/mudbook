@@ -1,6 +1,6 @@
 {
   "name": "mudbook",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Generate documentation Web sites from HTML and Markdown pages.",
   "main": "./lib/mudbook",
   "scripts": {
