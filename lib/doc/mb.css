@@ -84,6 +84,7 @@ OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWA
 }
 
 .mb-sidebar {
+  display: flex;
     -ms-flex-order: 0;
     order: 0;
     overflow-y: auto;
@@ -96,7 +97,7 @@ OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWA
     top: 0;
     padding-top: 100px;
     padding-left: 30px;
-
+  background-color: white;
 }
 
 @media (min-width: 768px) {
@@ -128,9 +129,10 @@ OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWA
 
 .mb-content {
   margin-bottom: 0;
-  margin-top: 75px;
+  margin-top: 55px;
   border-left: 1px solid #eee;
   padding-left: 30px;
+  padding-top: 20px;
 }
   
 .mb-content img {
@@ -139,7 +141,8 @@ OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWA
 
 @media (max-width: 768px) {
   .mb-content {
-    margin-top: 95px;
+    margin-top: 80px;
+    padding-left: 15px;
   }
 }
 
@@ -196,6 +199,13 @@ margin-right: 10px;
 
 .mb-search-form {
   position: relative;
+  width: 300px;
+}
+
+@media (max-width: 768px) {
+  .mb-search-form {
+    width: 100%;
+  }
 }
 
 .mb-search-results {
@@ -203,16 +213,16 @@ margin-right: 10px;
   top: 100%;
   left: 0;
   right: 0;
-  border: 1px solid #f0f0f0;
   border-bottom: none;
   border-top: none;
   z-index: 900;
+  background-color:rgb(244, 251, 253);
+
 }
 
 .mb-search-results div {
   cursor: pointer;
-  background-color: #fff;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #eee;
 }
 
 
@@ -220,10 +230,11 @@ margin-right: 10px;
   padding: 10px;
   display: inline-block;
   width: 100%;
+  color: rgb(61, 72, 82)
 }
 
 .mb-search-results div:hover {
-  background-color: rgb(219,238,244);
+  background-color: rgb(233, 245, 248);
 }
 
 

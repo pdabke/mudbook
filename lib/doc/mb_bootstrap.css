@@ -1408,8 +1408,7 @@ button.bg-dark:focus {
   color: #495057;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.1rem;
+  border: none;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media screen and (prefers-reduced-motion: reduce) {
@@ -1772,7 +1771,7 @@ textarea.form-control {
   }
   .form-inline .form-control {
     display: inline-block;
-    width: auto;
+    /*width: auto; */
     vertical-align: middle;
   }
   .form-inline .form-control-plaintext {
