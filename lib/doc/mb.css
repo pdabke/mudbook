@@ -34,7 +34,7 @@ OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWA
 
 .mb-navbar {
   height: 55px;
-  background: #073642;
+  background: #34495e;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -44,7 +44,9 @@ OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWA
   z-index: 1000;
 }
 
-
+.navbar-brand {
+  color: azure;
+}
 .navbar-brand img {
   height: 20px;
 }
@@ -84,7 +86,6 @@ OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWA
 .mb-sidebar {
     -ms-flex-order: 0;
     order: 0;
-    background-color: #f8f8f8;
     overflow-y: auto;
     height: 100vh;
     justify-content: space-between;
@@ -94,6 +95,7 @@ OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWA
     left: -300px;
     top: 0;
     padding-top: 100px;
+    padding-left: 30px;
 
 }
 
@@ -127,6 +129,8 @@ OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWA
 .mb-content {
   margin-bottom: 0;
   margin-top: 75px;
+  border-left: 1px solid #eee;
+  padding-left: 30px;
 }
   
 .mb-content img {
@@ -253,6 +257,10 @@ blockquote p {
 
 .mb-page-link.active {
   font-weight: bold;
+}
+
+.mb-page-link a, .mb-page-link a:visited {
+  color: #111;
 }
 
 /* Code styling */
