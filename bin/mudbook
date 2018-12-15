@@ -71,14 +71,21 @@ function setOption(s, l, d) {
   if (argv[s]) options[l] = argv[s];
   else if (argv[l]) options[l] = argv[l];
   else options[l] = d;
+  // Some times user may specify the same option multiple times. In this
+  // case the value is an array and that is not allowed
+  return Array.isArray(options[l]);
 }
 
 
 var options = {};
+var arrayFound = false;
 for (var i=0; i<optionInfo.length; i++) {
-  setOption(...optionInfo[i]);
+  if (!arrayFound) arrayFound = setOption(...optionInfo[i]);
 }
-
+if (arrayFound) {
+  console.error("Invalid args: Same option specified more than once.");
+  process.exit();
+}
 var mode = argv['_'];
 if (!mode || mode.length === 0) mode = 'start';
 else mode = mode[0];

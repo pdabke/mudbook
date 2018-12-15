@@ -10,6 +10,7 @@
       "name": "Launch Program",
       "program": "${workspaceFolder}\\bin\\mudbook",
       "protocol": "inspector",
+      // "args": ["export", "-d", "C:\\docsrc", "-o", "C:\\doc", "-w"],
       "smartStep": true
     }
   ]
